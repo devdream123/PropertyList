@@ -1,15 +1,15 @@
 <div class="row">
     <div class="col-6 container">
-        <h2>Results</h2>
+        <h3>Results</h3>
         <div class="card" *ngFor="let property of propertyList">
 
             <div class="card-header">
                 <img class="img-thumbnail " src={{property.agency.logo}}>
             </div>
-            <div class="card-body">
+            <div class="card-body" [ngClass]="{ background:property.agency.brandingColors.primary}">
                 <img class="card-img-top main-img" src={{property.mainImage}}>
                 <div class="card-add-button">
-                    <button type="button" class="btn btn-success add-button" (click)=addProperty(property)>Add Property </button>
+                    <button type="button" class="btn btn-success add-button" (click)=addProperty(property)>Add property </button>
                 </div>
             </div>
 
@@ -21,7 +21,7 @@
     </div>
 
     <div class="col-6 container">
-        <h2>Saved Properties</h2>
+        <h3>Saved Properties</h3>
         <div class="card" *ngFor="let savedProperty of savedPropertyList">
 
             <div class="card-header">
@@ -30,7 +30,7 @@
             <div class="card-body">
                 <img class="card-img-top" src={{savedProperty.mainImage}}>
                 <div class="card-remove-button">
-                    <button type="button" class="btn btn-danger remove-button" (click)=removeProperty(savedProperty)>Remove Property </button>
+                    <button type="button" class="btn btn-danger remove-button" (click)=removeProperty(savedProperty)>Remove property </button>
                 </div>
             </div>
             <div class="card-footer">

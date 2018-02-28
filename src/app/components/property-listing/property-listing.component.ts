@@ -13,7 +13,6 @@ import { indexDebugNode } from '@angular/core/src/debug/debug_node';
 export class PropertyListingComponent implements OnInit {
   public propertyList = [];
   public savedPropertyList = [];
-
   constructor(public propertyService:PropertyService) { }
 
   ngOnInit() {
@@ -26,7 +25,7 @@ export class PropertyListingComponent implements OnInit {
         resp.results.forEach(property => {
           this.propertyList.push(property);
         });
-          console.log("test result:  " , this.propertyList);
+          console.log("test result:  " , this.propertyList);          
       },
       error => {
         console.log("error: " , error);
@@ -36,7 +35,11 @@ export class PropertyListingComponent implements OnInit {
 
 
   private addProperty(property) { 
-      this.savedPropertyList.push(property);
+      let indexProperty;
+      indexProperty = this.savedPropertyList.indexOf(property);  
+      if(indexProperty === -1){
+        this.savedPropertyList.push(property);
+      }
       console.log("savedPropertyList: " , this.savedPropertyList);
 
   }
