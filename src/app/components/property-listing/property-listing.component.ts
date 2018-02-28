@@ -1,9 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { NgStyle } from '@angular/common';
 import { PropertyService } from '../../services/property.service';
-import { Input, Output } from '@angular/core';
-import { EventEmitter } from 'events';
-import { indexDebugNode } from '@angular/core/src/debug/debug_node';
+
 
 @Component({
   selector: 'app-property-listing',
