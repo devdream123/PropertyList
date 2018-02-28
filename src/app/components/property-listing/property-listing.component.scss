@@ -1,0 +1,46 @@
+    @import '~bootstrap/dist/css/bootstrap.min.css';
+    $margin-standard :15px;
+    %middle-img {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+    }
+    
+    h2 {
+        text-align: center;
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        font-style: bold;
+    }
+    
+    .card {
+        margin-top: $margin-standard;
+        margin-bottom: $margin-standard;
+        &:hover {
+            .add-button {
+                opacity: 1;
+                border: 1px solid;
+                background: #009b00;
+                border: 0px solid transparent;
+            }
+            .remove-button {
+                opacity: 1;
+                border: 1px solid;
+                background: red;
+                border: 0px solid transparent;
+            }
+            opacity: 0.8;
+        }
+    }
+    
+    .add-button,
+    .remove-button {
+        opacity: 0;
+        width: 50%;
+        height: 50px;
+        @extend %middle-img;
+        &:hover,
+        &:active {
+            background: #aae5aa;
+        }
+    }
