@@ -2,7 +2,6 @@
     <div class="col-6 container">
         <h3>Results</h3>
         <div class="card" *ngFor="let property of propertyList">
-
             <div class="card-header">
                 <img class="img-thumbnail " src={{property.agency.logo}}>
             </div>
@@ -12,18 +11,15 @@
                     <button type="button" class="btn btn-success add-button" (click)=addProperty(property)>Add property </button>
                 </div>
             </div>
-
             <div class="card-footer">
                 {{property.price}}
             </div>
-
         </div>
     </div>
 
     <div class="col-6 container">
         <h3>Saved Properties</h3>
         <div class="card" *ngFor="let savedProperty of savedPropertyList">
-
             <div class="card-header">
                 <img class="img-thumbnail " src={{savedProperty.agency.logo}}>
             </div>
@@ -36,8 +32,6 @@
             <div class="card-footer">
                 {{savedProperty.price}}
             </div>
-
         </div>
     </div>
-
 </div>
