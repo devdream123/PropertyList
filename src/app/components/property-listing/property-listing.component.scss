@@ -7,6 +7,7 @@
     $background-color-hover-remove-button: #ff0000;
     $color-text-button: #ffffff;
     $color-header: #ffffff;
+    $color-id: #adabab;
     $background-color-header: #3f3a3a;
     $border-round: 5px;
     $header-font-family: 'Gill Sans',
@@ -44,6 +45,7 @@
     
     .container {
         background: $background-color-body;
+        margin: 0 0 0 0;
     }
     
     h3 {
@@ -56,6 +58,11 @@
         font-style: bold;
         color: $color-header;
         background: $background-color-header;
+    }
+    
+    .id {
+        float: right;
+        color: $color-id;
     }
     
     .card {

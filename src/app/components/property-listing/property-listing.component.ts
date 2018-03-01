@@ -13,16 +13,17 @@ export class PropertyListingComponent implements OnInit {
   constructor(public propertyService:PropertyService) { }
 
   ngOnInit() {
-    this.displayProperty();
+    this.displayAllProperty();
+    this.displaySavedProperty();
   }
 
- private displayProperty():void{
+ private displayAllProperty():void{
     this.propertyService.getProperty().subscribe(
       resp => {
         resp.results.forEach(property => {
           this.propertyList.push(property);
         });
-          console.log("test result:  " , this.propertyList);          
+          console.log("All property result:  " , this.propertyList);          
       },
       error => {
         console.log("error: " , error);
@@ -30,15 +31,27 @@ export class PropertyListingComponent implements OnInit {
     );
   }
 
+  private displaySavedProperty():void{
+    this.propertyService.getProperty().subscribe(
+      resp => {
+        resp.saved.forEach(savedProperty => {
+          this.savedPropertyList.push(savedProperty);
+        });
+          console.log("Saved result:  " , this.savedPropertyList);          
+      },
+      error => {
+        console.log("error: " , error);
+      }
+    );
+  }
 
   private addProperty(property) { 
       let indexProperty;
       indexProperty = this.savedPropertyList.indexOf(property);  
       if(indexProperty === -1){
         this.savedPropertyList.push(property);
+        this.propertyService.addProperty(property);
       }
-      console.log("savedPropertyList: " , this.savedPropertyList);
-
   }
 
   private removeProperty(property) { 
@@ -46,7 +59,7 @@ export class PropertyListingComponent implements OnInit {
     if(this.savedPropertyList.length !== 0){
       indexProperty = this.savedPropertyList.indexOf(property);
       this.savedPropertyList.splice(indexProperty);
-      console.log("savedPropertyList-remove: " , this.savedPropertyList);
+      this.propertyService.removeProperty(property);
     }
    
 

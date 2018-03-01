@@ -4,6 +4,7 @@
         <div class="card" *ngFor="let property of propertyList">
             <div class="card-header">
                 <img class="img-thumbnail " src={{property.agency.logo}}>
+                <p class="id">{{property.id}}</p>
             </div>
             <div class="card-body" [ngClass]="{ background:property.agency.brandingColors.primary}">
                 <img class="card-img-top main-img" src={{property.mainImage}}>
@@ -22,6 +23,7 @@
         <div class="card" *ngFor="let savedProperty of savedPropertyList">
             <div class="card-header">
                 <img class="img-thumbnail " src={{savedProperty.agency.logo}}>
+                <p class="id">{{savedProperty.id}}</p>
             </div>
             <div class="card-body">
                 <img class="card-img-top" src={{savedProperty.mainImage}}>
