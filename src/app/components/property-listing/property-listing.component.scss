@@ -1,92 +1,57 @@
-    @import '~bootstrap/dist/css/bootstrap.min.css';
-    $margin-standard :15px;
-    $background-color-body: #dad7d7b2;
-    $background-color-add-button: #049904;
-    $background-color-hover-add-button: #10af10;
-    $background-color-remove-button: #da0606;
-    $background-color-hover-remove-button: #ff0000;
-    $color-text-button: #ffffff;
-    $color-header: #ffffff;
-    $color-id: #adabab;
-    $background-color-header: #3f3a3a;
-    $border-round: 5px;
-    $header-font-family: 'Gill Sans',
-    'Gill Sans MT',
-    Calibri,
-    'Trebuchet MS',
-    sans-serif;
-    %middle-img {
-        position: absolute;
-        top: 80%;
-        left: 50%;
-        transform: translate(-50%, -50%);
+@import '../../../styles.scss';
+@import '../../shared/stylesheets/base.scss';
+$background-color-add-button: #049904;
+$background-color-hover-add-button: #10af10;
+$background-color-remove-button: #da0606;
+$background-color-hover-remove-button: #ff0000;
+.row {
+    margin-left: $margin-standard;
+}
+
+.container {
+    background: $background-color-body;
+    margin: 0 0 0 0;
+}
+
+h3 {
+    margin-top: $margin-standard;
+    padding-top: $margin-standard;
+    padding-bottom: $margin-standard;
+    border-radius: $border-round;
+    text-align: center;
+    font-family: $header-font-family;
+    font-style: bold;
+    color: $color-header;
+    background: $background-color-header;
+}
+
+.id {
+    float: right;
+    color: $color-id;
+}
+
+.card {
+    margin-top: $margin-standard;
+    margin-bottom: $margin-standard;
+    .add-button,
+    .remove-button {
+        @extend %button-standard;
     }
-    
-    %hide {
-        opacity: 0;
-    }
-    
-    %show {
-        opacity: 1;
-    }
-    
-    %button-standard {
-        width: 90%;
-        height: 50px;
-        border: 0px solid transparent;
-        border-radius: $border-round;
-        @extend %middle-img;
-        @extend %hide;
-    }
-    
-    .row {
-        margin-left: $margin-standard;
-    }
-    
-    .container {
-        background: $background-color-body;
-        margin: 0 0 0 0;
-    }
-    
-    h3 {
-        margin-top: $margin-standard;
-        padding-top: $margin-standard;
-        padding-bottom: $margin-standard;
-        border-radius: $border-round;
-        text-align: center;
-        font-family: $header-font-family;
-        font-style: bold;
-        color: $color-header;
-        background: $background-color-header;
-    }
-    
-    .id {
-        float: right;
-        color: $color-id;
-    }
-    
-    .card {
-        margin-top: $margin-standard;
-        margin-bottom: $margin-standard;
-        .add-button,
+    &:hover {
+        opacity: 0.7;
+        .add-button {
+            @extend %show;
+            background: $background-color-add-button;
+            &:hover {
+                background: $background-color-hover-add-button;
+            }
+        }
         .remove-button {
-            @extend %button-standard;
-        }
-        &:hover {
-            opacity: 0.7;
-            .add-button {
-                @extend %show;
-                background: $background-color-add-button;
-                &:hover {
-                    background: $background-color-hover-add-button;
-                }
-            }
-            .remove-button {
-                @extend %show;
-                background: $background-color-remove-button;
-                &:hover {
-                    background: $background-color-hover-remove-button;
-                }
+            @extend %show;
+            background: $background-color-remove-button;
+            &:hover {
+                background: $background-color-hover-remove-button;
             }
         }
     }
+}

@@ -1,0 +1,24 @@
+@import '../../shared/stylesheets/borders.scss';
+%middle-img {
+    position: absolute;
+    top: 80%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+%hide {
+    opacity: 0;
+}
+
+%show {
+    opacity: 1;
+}
+
+%button-standard {
+    width: 90%;
+    height: 50px;
+    border: 0px solid transparent;
+    border-radius: $border-round;
+    @extend %middle-img;
+    @extend %hide;
+}
